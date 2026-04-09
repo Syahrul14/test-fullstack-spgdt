@@ -40,8 +40,8 @@ class ReportSpgdtController extends Controller
                                     new OA\Property(property: "code", type: "string", example: "SPGDT-20260401-001"),
                                     new OA\Property(property: "name", type: "string", example: "Budi"),
                                     new OA\Property(property: "level", type: "string", example: "high"),
-                                    new OA\Property(property: "status", type: "string", example: "Panding"),
-                                    new OA\Property(property: "location", type: "string", example: "Jakarta"),
+                                    new OA\Property(property: "status", type: "string", example: "panding"),
+                                    new OA\Property(property: "location", type: "string", example: "Jl. Sudirman"),
                                     new OA\Property(property: "date", type: "string", example: "2026-04-09")
                                 ]
                             )
