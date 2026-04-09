@@ -1,0 +1,140 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Syharul Rizal - API SPGDT",
+        "description": "Dokumentasi API SPGDT",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/report-spgdt": {
+            "get": {
+                "tags": [
+                    "SPGDT"
+                ],
+                "summary": "Ambil data laporan SPGDT",
+                "description": "API untuk mengambil data SPGDT dengan filter",
+                "operationId": "552b8cef0ba717317f550ec1c4185b76",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "Kode",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Nama",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "Level",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Status",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "description": "Lokasi",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start_date",
+                        "in": "query",
+                        "description": "Tanggal mulai",
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "description": "Tanggal akhir",
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Berhasil mengambil data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "code": {
+                                                        "type": "string",
+                                                        "example": "SPGDT-20260401-001"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Budi"
+                                                    },
+                                                    "level": {
+                                                        "type": "string",
+                                                        "example": "high"
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "Panding"
+                                                    },
+                                                    "location": {
+                                                        "type": "string",
+                                                        "example": "Jakarta"
+                                                    },
+                                                    "date": {
+                                                        "type": "string",
+                                                        "example": "2026-04-09"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "SPGDT",
+            "description": "SPGDT"
+        }
+    ]
+}

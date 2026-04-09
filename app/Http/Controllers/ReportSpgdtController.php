@@ -3,9 +3,54 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use OpenApi\Attributes as OA;
 
 class ReportSpgdtController extends Controller
 {
+
+  #[OA\Get(
+        path: "/api/report-spgdt",
+        summary: "Ambil data laporan SPGDT",
+        description: "API untuk mengambil data SPGDT dengan filter",
+        tags: ["SPGDT"],
+        parameters: [
+            new OA\Parameter(name: "code", in: "query", description: "Kode", schema: new OA\Schema(type: "string")),
+            new OA\Parameter(name: "name", in: "query", description: "Nama", schema: new OA\Schema(type: "string")),
+            new OA\Parameter(name: "level", in: "query", description: "Level", schema: new OA\Schema(type: "string")),
+            new OA\Parameter(name: "status", in: "query", description: "Status", schema: new OA\Schema(type: "string")),
+            new OA\Parameter(name: "location", in: "query", description: "Lokasi", schema: new OA\Schema(type: "string")),
+            new OA\Parameter(name: "start_date", in: "query", description: "Tanggal mulai", schema: new OA\Schema(type: "string", format: "date")),
+            new OA\Parameter(name: "end_date", in: "query", description: "Tanggal akhir", schema: new OA\Schema(type: "string", format: "date")),
+        ],
+        responses: [
+            new OA\Response(
+                response: 200,
+                description: "Berhasil mengambil data",
+                content: new OA\JsonContent(
+                    type: "object",
+                    properties: [
+                        new OA\Property(property: "status", type: "string", example: "success"),
+                        new OA\Property(
+                            property: "data",
+                            type: "array",
+                            items: new OA\Items(
+                                type: "object",
+                                properties: [
+                                    new OA\Property(property: "id", type: "number", example: "1"),
+                                    new OA\Property(property: "code", type: "string", example: "SPGDT-20260401-001"),
+                                    new OA\Property(property: "name", type: "string", example: "Budi"),
+                                    new OA\Property(property: "level", type: "string", example: "high"),
+                                    new OA\Property(property: "status", type: "string", example: "Panding"),
+                                    new OA\Property(property: "location", type: "string", example: "Jakarta"),
+                                    new OA\Property(property: "date", type: "string", example: "2026-04-09")
+                                ]
+                            )
+                        )
+                    ]
+                )
+            )
+        ]
+    )]
 
     public function getData(Request $request)
     {
